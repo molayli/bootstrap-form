@@ -53,7 +53,7 @@ class BootstrapFormServiceProvider extends ServiceProvider
     {
         $functions = [
             'open', 'close', 'vertical', 'inline', 'horizontal',
-            'text', 'email', 'url', 'tel', 'number', 'date', 'time', 'textarea', 'password','color',
+            'text', 'email', 'url', 'tel', 'number', 'date', 'time', 'textarea', 'password', 'color',
             'file', 'hidden', 'select', 'range',
             'checkbox', 'checkboxes', 'radio', 'radios',
             'label', 'submit', 'reset', 'button', 'link',
@@ -61,7 +61,7 @@ class BootstrapFormServiceProvider extends ServiceProvider
 
         foreach ($functions as $f) {
             Blade::directive($f, function ($expression) use ($f) {
-                return "<?= BF::{$f}({$expression}); ?>";
+                return "<?php echo BF::{$f}({$expression}); ?>";
             });
         }
     }
